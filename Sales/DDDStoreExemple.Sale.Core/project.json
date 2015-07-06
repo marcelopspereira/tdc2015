@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0-*",
+    "dependencies": {
+        "DDDStoreExemple.Common": "1.0.0-*"
+    },
+
+    "frameworks": {
+        "dnx451": {
+            "dependencies": {}
+        }
+    }
+}
