@@ -8,6 +8,7 @@ namespace Store.Venda.Core.Domain.Model
 	{
 		public Cliente Cliente { get; private set; }
 		public ICollection<Item> Itens { get; private set; }
+		public Guid UltimoItemLancado { get; private set; }
 		
 		public Carrinho(Cliente cliente)
 		{
@@ -18,9 +19,16 @@ namespace Store.Venda.Core.Domain.Model
 		public void AdicionarItem(Item item)
 		{
 			Itens.Add(item);
+			UltimoItemLancado = item.Id;
 		}
 		
-		public double CalcularTotalItens()
+		public void RemoverItem(Guid id)
+		{
+			var item = this.Itens.Where(x => x.Id == id).FirstOrDefault();
+			Itens.Remove(item);
+		}
+		
+		public double Calcular()
 		{
 			return Itens.Sum(x => x.Preco);
 		}
