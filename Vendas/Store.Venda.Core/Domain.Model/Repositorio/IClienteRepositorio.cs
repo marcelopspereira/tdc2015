@@ -1,6 +1,6 @@
 using System;
 
-namespace Store.Sale.Core.Domain.Model
+namespace Store.Venda.Core.Domain.Model
 {
 	public interface IClienteRepositorio
 	{

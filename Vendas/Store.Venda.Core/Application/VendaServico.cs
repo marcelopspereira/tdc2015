@@ -1,6 +1,6 @@
-using Store.Sale.Core.Domain.Model;
+using Store.Venda.Core.Domain.Model;
 
-namespace Store.Sale.Core.Application
+namespace Store.Venda.Core.Application
 {
     public class VendaServico
     {
