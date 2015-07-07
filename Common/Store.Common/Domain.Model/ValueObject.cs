@@ -1,6 +1,6 @@
 using System;
 
-namespace DDDStoreExemple.Common.Domain.Model
+namespace Store.Common.Domain.Model
 {
     public abstract class ValueObject { }
 }
