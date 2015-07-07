@@ -11,7 +11,6 @@ namespace Store.Venda.Tests
         {
             Cliente cliente = null;
             Carrinho carrinho = null;
-            Item item = null;
             
             context["Dado que um cliente em compras no site"] = () =>
             {
@@ -20,11 +19,18 @@ namespace Store.Venda.Tests
                 
                 context["adiciona um item de R$ 100,00 no carrinho"] = () =>
                 {
-                    item = new Item(100);
-                    carrinho.AdicionarItem(item);
+                    carrinho.AdicionarItem(new Item(100));
                     
                     it["o total do carrinho será R$ 100,00"] = () =>
                         Assert.Equal(100, carrinho.CalcularTotalItens());
+                };
+
+                context["adiciona outro item de R$ 100,00 "] = () =>
+                {
+                    carrinho.AdicionarItem(new Item(100));
+                    
+                    it["o total do carrinho agora será R$ 200,00"] = () =>
+                        Assert.Equal(200, carrinho.CalcularTotalItens());
                 };
             };
         }
