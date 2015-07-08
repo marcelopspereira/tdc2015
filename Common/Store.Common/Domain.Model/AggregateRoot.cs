@@ -1,6 +1,4 @@
-using System;
-
 namespace Store.Common.Domain.Model
 {
-    public abstract class AggregateRoot : Entity { }
+    public abstract class AggregateRoot { }
 }
