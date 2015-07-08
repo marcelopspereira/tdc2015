@@ -1,4 +1,4 @@
-using Store.Venda.Core.Domain.Model;
+using Store.Venda.Core.Domain.Model.Repository;
 
 namespace Store.Venda.Core.Application
 {
