@@ -13,7 +13,7 @@ namespace Store.Venda.Tests
         [Fact]
         public void adicionando_e_removendo_itens_no_carrinho()
         {
-            carrinho = new Carrinho(new Cliente());
+            carrinho = new Carrinho(Guid.Empty);
             Console.WriteLine();
 
             context["Dado que um cliente em compras no site"] = () =>
@@ -43,7 +43,7 @@ namespace Store.Venda.Tests
         [Fact]
         public void alterar_quantidade_de_item_de_um_carrinho()
         {
-            carrinho = new Carrinho(new Cliente());
+            carrinho = new Carrinho(Guid.Empty);
 
             context["Dado um carrinho com um produto de R$ 100,00"] = () =>
             {

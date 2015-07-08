@@ -9,15 +9,20 @@ namespace Store.Venda.Core.Domain.Model
     public class Carrinho : AggregateRoot
     {
         public Guid Id { get; private set; }
-        public Cliente Cliente { get; private set; }
+        public Guid PedidoId { get; private set; }
+        public Guid ClienteId { get; private set; }
         public ICollection<ItemPedido> Itens { get; private set; }
         public Guid UltimoItemLancado { get; private set; }
+        public DateTime Abertura { get; private set; }
+        public bool PedidoGerado { get; private set; }
 
-        public Carrinho(Cliente cliente)
+        public Carrinho(Guid clienteId)
         {
             this.Id = Guid.NewGuid();
-            this.Cliente = cliente;
+            this.ClienteId = clienteId;
             this.Itens = new List<ItemPedido>();
+            this.Abertura = DateTime.Today;
+            this.PedidoGerado = false;
         }
 
         public void AdicionarProduto(Produto produto, int quantidade = 1)
