@@ -3,14 +3,12 @@ using Store.Common.Domain.Model;
 
 namespace Store.Venda.Core.Domain.Model
 {
-	public class Produto: ValueObject
+	public class Produto: Entity
 	{
-		public Guid Id { get; private set; }
 		public double Preco { get; private set; }
 		
-		public Produto(double preco)
+		public Produto(double preco):base(Guid.NewGuid())
 		{
-			this.Id = Guid.NewGuid();
 			this.Preco = preco;
 		}
 	}
