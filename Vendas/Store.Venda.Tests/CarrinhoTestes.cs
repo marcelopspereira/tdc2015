@@ -14,9 +14,8 @@ namespace Store.Venda.Tests
         public void adicionando_e_removendo_itens_no_carrinho()
         {
             carrinho = new Carrinho(Guid.NewGuid());
-            Console.WriteLine();
 
-            context["Dado que um cliente em compras no site"] = () =>
+            describe["Dado que um cliente em compras no site"] = () =>
             {
                 context["adiciona um produto de R$ 100,00 no carrinho"] = () =>
                 {
@@ -36,8 +35,6 @@ namespace Store.Venda.Tests
                     it["o total do carrinho é R$ 100,00"] = () => Assert.Equal(100, carrinho.Calcular());
                 };
             };
-
-            Console.WriteLine();
         }
 
         [Fact]
@@ -45,7 +42,7 @@ namespace Store.Venda.Tests
         {
             carrinho = new Carrinho(Guid.NewGuid());
 
-            context["Dado um carrinho com um produto de R$ 100,00"] = () =>
+            describe["Dado um carrinho com um produto de R$ 100,00"] = () =>
             {
                 carrinho.AdicionarProduto(new Produto(100));
 
@@ -65,8 +62,6 @@ namespace Store.Venda.Tests
                     it["o subtotal será R$ 100,00"] = () => Assert.Equal(100, carrinho.Calcular());
                 };                
             };
-            Console.WriteLine();
         }
-
     }
 }
