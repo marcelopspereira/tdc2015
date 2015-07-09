@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Store.Venda.Core.Domain.Model
+namespace Store.Venda.Core.Domain.Model.Specs
 {
     public static class CarrinhoSpec
     {
