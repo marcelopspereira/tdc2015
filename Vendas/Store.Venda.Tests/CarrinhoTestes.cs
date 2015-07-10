@@ -2,6 +2,7 @@ using Xunit;
 using System;
 using System.Linq;
 using BetterSpecs;
+using Fact.Factory;
 using Store.Venda.Core.Domain.Model;
 
 namespace Store.Venda.Tests
@@ -9,29 +10,47 @@ namespace Store.Venda.Tests
     public class CarrinhoTestes : SpecContext
     {
         private Carrinho carrinho;
+        private Produto produto100;
+        private Produto produto400;
+        
+        public CarrinhoTestes()
+        {
+            VendasFactory.Build();
+            
+            carrinho = Builder.Current.Build<Carrinho>();
+            produto100 = Builder.Current.Build<Produto>("100");
+            produto400 = Builder.Current.Build<Produto>("400");
+            
+        }
+        
+        public void Dispose()
+        {
+            Builder.Current.Clear();
+        }
 
         [Fact]
         public void adicionando_e_removendo_itens_no_carrinho()
         {
-            carrinho = new Carrinho(Guid.NewGuid());
-
             describe["Dado que um cliente em compras no site"] = () =>
             {
                 context["adiciona um produto de R$ 100,00 no carrinho"] = () =>
                 {
-                    carrinho.AdicionarProduto(new Produto(100));
+                    carrinho.AdicionarProduto(produto100);
+                    
                     it["o total do carrinho é R$ 100,00"] = () => Assert.Equal(100, carrinho.Calcular());
                 };
 
                 context["adiciona um produto de R$ 400,00 "] = () =>
                 {
-                    carrinho.AdicionarProduto(new Produto(400));
+                    carrinho.AdicionarProduto(produto400);
+                    
                     it["o total do carrinho é R$ 500,00"] = () => Assert.Equal(500, carrinho.Calcular());
                 };
 
                 context["remove o ultimo item"] = () =>
                 {
                     carrinho.RemoverItem(carrinho.UltimoItemLancado);
+                    
                     it["o total do carrinho é R$ 100,00"] = () => Assert.Equal(100, carrinho.Calcular());
                 };
             };
@@ -44,7 +63,7 @@ namespace Store.Venda.Tests
 
             describe["Dado um carrinho com um produto de R$ 100,00"] = () =>
             {
-                carrinho.AdicionarProduto(new Produto(100));
+                carrinho.AdicionarProduto(produto100);
 
                 context["Ao incrementar este produto com mais 1 unidade"] = () =>
                 {

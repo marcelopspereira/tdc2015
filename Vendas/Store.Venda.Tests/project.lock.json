@@ -11,6 +11,14 @@
           "lib/net40/BetterSpecs.dll": {}
         }
       },
+      "Fact/1.0.16": {
+        "compile": {
+          "lib/Fact.dll": {}
+        },
+        "runtime": {
+          "lib/Fact.dll": {}
+        }
+      },
       "Microsoft.Framework.ApplicationHost/1.0.0-beta5": {
         "dependencies": {
           "Microsoft.Framework.Runtime": "1.0.0-beta5",
@@ -326,6 +334,15 @@
         "NuGet.exe",
         "NuGet.targets",
         "lib/net40/BetterSpecs.dll"
+      ]
+    },
+    "Fact/1.0.16": {
+      "sha512": "3Z2okyK8KWGlzpXEkTcbxIWuBTfcFKT2RhU+H35Aty11woVceQRnJTcxkUsnCjW2Rbg8/2yO9R8ecZfdyYSZwQ==",
+      "files": [
+        "Fact.1.0.16.nupkg",
+        "Fact.1.0.16.nupkg.sha512",
+        "Fact.nuspec",
+        "lib/Fact.dll"
       ]
     },
     "Microsoft.Framework.ApplicationHost/1.0.0-beta5": {
@@ -670,7 +687,8 @@
       "Store.Venda.Core >= 1.0.0-*",
       "xunit >= 2.1.0-*",
       "xunit.runner.dnx >= 2.1.0-*",
-      "BetterSpecs >= 1.4.0"
+      "BetterSpecs >= 1.4.0",
+      "Fact >= 1.0.16"
     ],
     "DNX,Version=v4.5.1": []
   }
